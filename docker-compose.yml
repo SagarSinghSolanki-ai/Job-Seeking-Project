@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: jobzee-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - jobzee-network
+
+  backend:
+    build:
+      context: ./Backend
+    container_name: jobzee-backend
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - MONGO_URI=mongodb://mongodb:27017/MERN_STACK_JOB_SEEKING
+      - FRONTEND_URL=http://localhost:5173
+    env_file:
+      - ./Backend/config/config.env
+    depends_on:
+      - mongodb
+    networks:
+      - jobzee-network
+
+  frontend:
+    build:
+      context: ./Frontend
+    container_name: jobzee-frontend
+    ports:
+      - "5173:80"
+    networks:
+      - jobzee-network
+
+volumes:
+  mongo-data:
+
+networks:
+  jobzee-network:
+    driver: bridge
