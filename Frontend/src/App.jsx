@@ -40,7 +40,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthorized, setIsAuthorized, setUser]);
+  }, [setIsAuthorized, setUser]);
 
   useEffect(() => {
     if (isAuthorized && user && user._id) {
