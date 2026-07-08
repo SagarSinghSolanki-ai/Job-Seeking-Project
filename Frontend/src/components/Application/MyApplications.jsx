@@ -49,8 +49,8 @@ const MyApplications = () => {
     }
 
     const endpoint = user?.role === "Employer" 
-      ? "http://localhost:4000/api/v1/application/employer/getall"
-      : "http://localhost:4000/api/v1/application/jobseeker/getall";
+      ? "https://jobzee-backend-ph70.onrender.com/api/v1/application/employer/getall"
+      : "https://jobzee-backend-ph70.onrender.com/api/v1/application/jobseeker/getall";
 
     axios
       .get(endpoint, { withCredentials: true })
@@ -65,7 +65,7 @@ const MyApplications = () => {
 
   const deleteApplication = (id) => {
     axios
-      .delete(`http://localhost:4000/api/v1/application/delete/${id}`, {
+      .delete(`https://jobzee-backend-ph70.onrender.com/api/v1/application/delete/${id}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -79,7 +79,7 @@ const MyApplications = () => {
 
   const updateStatus = (id, newStatus) => {
     axios
-      .put(`http://localhost:4000/api/v1/application/update/${id}`, { status: newStatus }, {
+      .put(`https://jobzee-backend-ph70.onrender.com/api/v1/application/update/${id}`, { status: newStatus }, {
         withCredentials: true,
       })
       .then((res) => {
@@ -106,7 +106,7 @@ const MyApplications = () => {
     setLoadingAts(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/ai/ats-score",
+        "https://jobzee-backend-ph70.onrender.com/api/v1/ai/ats-score",
         { applicationId: appId },
         { withCredentials: true }
       );
@@ -127,7 +127,7 @@ const MyApplications = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/interview/schedule",
+        "https://jobzee-backend-ph70.onrender.com/api/v1/interview/schedule",
         {
           applicantId: selectedApp.applicantID.user,
           jobId: selectedApp.jobId?._id || selectedApp.jobId,

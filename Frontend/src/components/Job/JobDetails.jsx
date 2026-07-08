@@ -13,7 +13,7 @@ const JobDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/job/${id}`, { withCredentials: true })
+      .get(`https://jobzee-backend-ph70.onrender.com/api/v1/job/${id}`, { withCredentials: true })
       .then((res) => {
         setJob(res.data.job);
       })
@@ -29,7 +29,7 @@ const JobDetails = () => {
   const toggleBookmark = async () => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/user/bookmark/${id}`,
+        `https://jobzee-backend-ph70.onrender.com/api/v1/user/bookmark/${id}`,
         {},
         { withCredentials: true }
       );

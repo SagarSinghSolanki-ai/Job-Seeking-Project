@@ -18,7 +18,7 @@ const SavedJobs = () => {
 
   const fetchSavedJobs = () => {
     axios
-      .get("http://localhost:4000/api/v1/user/bookmarks", { withCredentials: true })
+      .get("https://jobzee-backend-ph70.onrender.com/api/v1/user/bookmarks", { withCredentials: true })
       .then((res) => setBookmarks(res.data.bookmarks))
       .catch((error) => console.log(error));
   };
@@ -32,7 +32,7 @@ const SavedJobs = () => {
   const removeBookmark = async (jobId) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/user/bookmark/${jobId}`,
+        `https://jobzee-backend-ph70.onrender.com/api/v1/user/bookmark/${jobId}`,
         {},
         { withCredentials: true }
       );

@@ -30,7 +30,7 @@ const Interviews = () => {
 
   const fetchInterviews = () => {
     axios
-      .get("http://localhost:4000/api/v1/interview/me", { withCredentials: true })
+      .get("https://jobzee-backend-ph70.onrender.com/api/v1/interview/me", { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           setInterviews(res.data.interviews);
@@ -51,7 +51,7 @@ const Interviews = () => {
   const handleUpdateStatus = (id, newStatus) => {
     axios
       .put(
-        `http://localhost:4000/api/v1/interview/update/${id}`,
+        `https://jobzee-backend-ph70.onrender.com/api/v1/interview/update/${id}`,
         { status: newStatus },
         { withCredentials: true }
       )

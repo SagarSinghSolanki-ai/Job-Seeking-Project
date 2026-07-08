@@ -34,7 +34,7 @@ const Dashboard = () => {
     const fetchAnalytics = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/analytics/employer",
+          "https://jobzee-backend-ph70.onrender.com/api/v1/analytics/employer",
           { withCredentials: true }
         );
         if (data.success) {

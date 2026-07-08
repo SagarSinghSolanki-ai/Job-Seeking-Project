@@ -14,7 +14,7 @@ const Jobs = () => {
 
   useEffect(() => {
     const fetchJobs = () => {
-      let url = "http://localhost:4000/api/v1/job/getall?";
+      let url = "https://jobzee-backend-ph70.onrender.com/api/v1/job/getall?";
       if (search) url += `search=${encodeURIComponent(search)}&`;
       if (category) url += `category=${encodeURIComponent(category)}&`;
       if (city) url += `city=${encodeURIComponent(city)}&`;

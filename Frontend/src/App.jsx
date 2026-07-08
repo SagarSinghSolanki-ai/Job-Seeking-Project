@@ -28,7 +28,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/getuser",
+          "https://jobzee-backend-ph70.onrender.com/api/v1/user/getuser",
           {
             withCredentials: true,
           }
@@ -44,7 +44,7 @@ const App = () => {
 
   useEffect(() => {
     if (isAuthorized && user && user._id) {
-      const socket = io("http://localhost:4000");
+      const socket = io("https://jobzee-backend-ph70.onrender.com");
       socket.emit("register", user._id);
 
       socket.on("statusUpdated", (data) => {

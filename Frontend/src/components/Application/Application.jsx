@@ -28,7 +28,7 @@ const Application = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/job/${id}`, { withCredentials: true })
+      .get(`https://jobzee-backend-ph70.onrender.com/api/v1/job/${id}`, { withCredentials: true })
       .then((res) => {
         setJob(res.data.job);
       })
@@ -50,7 +50,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/ai/parse",
+        "https://jobzee-backend-ph70.onrender.com/api/v1/ai/parse",
         formData,
         {
           withCredentials: true,
@@ -100,7 +100,7 @@ const Application = () => {
     setGenerating(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/ai/cover-letter",
+        "https://jobzee-backend-ph70.onrender.com/api/v1/ai/cover-letter",
         {
           jobDescription: job.description,
           candidateProfile: `Name: ${name || "Candidate"}. Address: ${address || ""}. Contact: ${phone || ""}.`
@@ -136,7 +136,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/application/post",
+        "https://jobzee-backend-ph70.onrender.com/api/v1/application/post",
         formData,
         {
           withCredentials: true,
