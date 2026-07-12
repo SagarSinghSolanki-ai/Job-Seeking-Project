@@ -4,7 +4,7 @@ services:
   mongodb:
     image: mongo:latest
     container_name: jobzee-mongodb
-    ports:
+    ports:  
       - "27017:27017"
     volumes:
       - mongo-data:/data/db

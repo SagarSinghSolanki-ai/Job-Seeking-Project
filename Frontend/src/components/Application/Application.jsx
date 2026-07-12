@@ -67,7 +67,7 @@ const Application = () => {
         }
         setName(data.data.name || "");
         setEmail(data.data.email || "");
-        setPhone(data.data.phone || "");
+        setPhone((data.data.phone || "").toString().replace(/\D/g, ""));
         setAddress(data.data.address || "");
         setCoverLetter(data.data.coverLetter || "");
         toast.success(

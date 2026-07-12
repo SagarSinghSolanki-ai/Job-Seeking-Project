@@ -22,7 +22,7 @@ const MyJobs = () => {
         );
         setMyJobs(data.myJobs);
       } catch (error) {
-        toast.error(error.response.data.message);
+        toast.error(error.response?.data?.message || "Could not connect to server.");
         setMyJobs([]);
       }
     };
@@ -55,7 +55,7 @@ const MyJobs = () => {
         setEditingMode(null);
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        toast.error(error.response?.data?.message || "Failed to update job.");
       });
   };
 
@@ -70,7 +70,7 @@ const MyJobs = () => {
         setMyJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        toast.error(error.response?.data?.message || "Failed to delete job.");
       });
   };
 

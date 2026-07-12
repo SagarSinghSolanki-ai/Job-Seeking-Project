@@ -1,6 +1,18 @@
 import React, { createContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+import axios from "axios";
+
+// Automatically switch API base URLs between localhost and production depending on hostname
+axios.interceptors.request.use((config) => {
+  if (window.location.hostname === "localhost" && config.url) {
+    config.url = config.url.replace(
+      "https://jobzee-backend-ph70.onrender.com",
+      "http://localhost:4000"
+    );
+  }
+  return config;
+});
 
 export const Context = createContext({
   isAuthorized: false,

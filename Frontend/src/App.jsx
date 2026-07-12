@@ -44,7 +44,11 @@ const App = () => {
 
   useEffect(() => {
     if (isAuthorized && user && user._id) {
-      const socket = io("https://jobzee-backend-ph70.onrender.com");
+      const socket = io(
+        window.location.hostname === "localhost"
+          ? "http://localhost:4000"
+          : "https://jobzee-backend-ph70.onrender.com"
+      );
       socket.emit("register", user._id);
 
       socket.on("statusUpdated", (data) => {

@@ -37,7 +37,7 @@ const Register = () => {
       setUser(data.user);
       setIsAuthorized(true);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Could not connect to server. Please try again.");
     }
   };
 
